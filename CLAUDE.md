@@ -108,3 +108,32 @@ Required environment variables for the Spring Boot application:
 - RxJS for reactive programming
 - JWT decode for token handling
 - Toastr for notifications
+
+## Task Management & Session Continuity
+
+### Persistent Task Tracking
+- **Primary Task File**: `/TASKS.md` - Main task tracker with DoD, acceptance criteria, and sprint planning
+- **Task Templates**: `/.claude/task-templates.md` - Templates for consistent task creation
+- **Session Continuity**: Always check TASKS.md when starting new Claude Code sessions
+
+### Task Management Guidelines
+1. **Always check TASKS.md first** when starting a new session
+2. **Update task status** as work progresses (📋 Todo → 🟡 In Progress → ✅ Done)
+3. **Reference tasks in commits** using format "TASK-XXX: description"
+4. **Use Definition of Done (DoD)** checklist for all tasks
+5. **Break down large tasks** into smaller, manageable pieces (max 8 story points)
+6. **Document blockers** and dependencies clearly
+
+### Status Indicators
+- 🔥 **Critical** - Blocking other work, immediate attention needed
+- 🟡 **In Progress** - Currently being worked on
+- 📋 **Todo** - Ready to start, meets Definition of Ready
+- ✅ **Done** - Completed and meets all DoD criteria
+- ⛔ **Blocked** - Cannot proceed due to dependencies
+- 🧊 **Icebox** - Future consideration, not prioritized
+
+### Priority Levels
+- 🔥 **Critical**: System issues, security vulnerabilities, blockers
+- 🟠 **High**: Important features, performance issues
+- 🟡 **Medium**: Enhancements, non-critical bugs
+- 🔵 **Low**: Nice-to-have features, minor improvements

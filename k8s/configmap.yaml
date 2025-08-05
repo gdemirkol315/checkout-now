@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: checkout-app-config
+  namespace: checkout-now
+data:
+  # Database configuration
+  POSTGRES_DB: "postgres"
+  POSTGRES_USER: "postgres"
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-service:5432/checkout_db"
+  SPRING_DATASOURCE_USERNAME: "checkout_user"
+  SPRING_JPA_HIBERNATE_DDL_AUTO: "update"
+  SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
+  
+  # Application configuration
+  SERVER_PORT: "8080"
+  SPRING_PROFILES_ACTIVE: "prod"
+  
+  # Frontend API endpoint
+  API_BASE_URL: "http://backend-service:8080"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: checkout-app-secrets
+  namespace: checkout-now
+type: Opaque
+stringData:
+  # Database secrets
+  POSTGRES_PASSWORD: "dev-postgres-secure-password-123"
+  SPRING_DATASOURCE_PASSWORD: "dev-postgres-secure-password-123"
+  
+  # JWT configuration - Generated secure key for development
+  JWT_SECRET: "dev-jwt-secret-key-for-checkout-management-application-very-long-and-secure-development-only-2024"
+  
+  # Email configuration (Gmail SMTP) - REPLACE WITH YOUR CREDENTIALS
+  EMAIL_USERNAME: "your-gmail@gmail.com"
+  EMAIL_PASS: "your-gmail-app-password"
+  
+  # Twilio configuration for WhatsApp - REPLACE WITH YOUR CREDENTIALS
+  TWILIO_SID: "your-twilio-account-sid"
+  TWILIO_TOKEN: "your-twilio-auth-token"
+  WHATSAPP_NUMBER: "your-twilio-whatsapp-number"
